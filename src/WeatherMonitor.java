@@ -39,7 +39,7 @@ public class WeatherMonitor {
         LinkedList tempurature= new LinkedList();
         LinkedList rainfall = new LinkedList();
         for(Reading r : readings){
-            tempurature.add(r.getTempurature());
+            tempurature.add(r.getTemperature());
             rainfall.add(r.getRainfall());
         }
 

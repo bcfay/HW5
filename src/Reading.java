@@ -1,11 +1,11 @@
 public class Reading {
     private Time time;
-    private double tempurature;
+    private double temperature;
     private double rainfall;
 
-    public Reading(Time time, double tempurature, double rainfall) {
+    public Reading(Time time, double temperature, double rainfall) {
         this.time = time;
-        this.tempurature = tempurature;
+        this.temperature = temperature;
         this.rainfall = rainfall;
     }
 
@@ -17,12 +17,12 @@ public class Reading {
         this.time = time;
     }
 
-    public double getTempurature() {
-        return tempurature;
+    public double getTemperature() {
+        return temperature;
     }
 
-    public void setTempurature(double tempurature) {
-        this.tempurature = tempurature;
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
     }
 
     public double getRainfall() {
