@@ -18,14 +18,6 @@ public class Reading {
     }
 
     /**
-     * setter method for time
-     * @param time
-     */
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
-    /**
      * getter method for temperature
      * @return temperature
      */

@@ -22,26 +22,9 @@ public class DailyWeatherReport implements IWeatherData {
     }
 
     /**
-     * Getter method for Temperature List
-     * @return temperature list
-     */
-    public LinkedList getTemperatureList() {
-        return temperature;
-    }
-
-    /**
-     * getter method for the list of Rainfall
-     * @return list of rainfall
-     */
-    public LinkedList getRainfallList() {
-        return rainfall;
-    }
-
-    /**
      * getter method for sum of each temperature in a list
      * @return sum of each temperature in the list
      */
-
     public double getTemperature(){
         return sumList(this.temperature);
     }
