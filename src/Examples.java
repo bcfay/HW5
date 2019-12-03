@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import javax.sound.sampled.Line;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.io.*;
@@ -40,8 +41,11 @@ public class Examples{
     Reading reading10 = new Reading(time10, 38.0, 1.0);
     Reading reading11 = new Reading(time11, 43.0, 0.0);
     Reading reading12 = new Reading(time12, 56.0, 3.0);
+    Reading reading13 = new Reading(time4,36,0.0);
+    Reading reading14 = new Reading(time4,36,0.0);
+    Reading reading15 = new Reading(time4,36,0.0);
 
-    LinkedList<DailyWeatherReport>list1 = new LinkedList<>();
+    LinkedList<IWeatherData>list1 = new LinkedList<>();
 
    public Examples() {
        /**
@@ -112,13 +116,13 @@ public class Examples{
 /**
  * Create dates for data
  */
-       GregorianCalendar date1 = new GregorianCalendar(2019, 12, 1);
-       GregorianCalendar date2 = new GregorianCalendar(2019, 12, 2);
-       GregorianCalendar date3 = new GregorianCalendar(2019, 12, 3);
-       GregorianCalendar date4 = new GregorianCalendar(2019, 12, 4);
-       GregorianCalendar date5 = new GregorianCalendar(2019, 12, 5);
-       GregorianCalendar date6 = new GregorianCalendar(2019,11,30);
-       GregorianCalendar date7 = new GregorianCalendar(2019,11,29);
+       GregorianCalendar date1 = new GregorianCalendar(2019, 11, 1);
+       GregorianCalendar date2 = new GregorianCalendar(2019, 11, 2);
+       GregorianCalendar date3 = new GregorianCalendar(2019, 11, 3);
+       GregorianCalendar date4 = new GregorianCalendar(2019, 11, 4);
+       GregorianCalendar date5 = new GregorianCalendar(2019, 11, 5);
+       GregorianCalendar date6 = new GregorianCalendar(2019,10,30);
+       GregorianCalendar date7 = new GregorianCalendar(2019,10,29);
 
 
 
@@ -204,13 +208,13 @@ public class Examples{
      */
     @Test
     public void testMon1(){
-        GregorianCalendar date1 = new GregorianCalendar(2019, 12, 1);
-        GregorianCalendar date2 = new GregorianCalendar(2019, 12, 2);
-        GregorianCalendar date3 = new GregorianCalendar(2019, 12, 3);
-        GregorianCalendar date4 = new GregorianCalendar(2019, 12, 4);
-        GregorianCalendar date5 = new GregorianCalendar(2019, 12, 5);
-        GregorianCalendar date6 = new GregorianCalendar(2019,11,30);
-        GregorianCalendar date7 = new GregorianCalendar(2019,11,29);
+        GregorianCalendar date1 = new GregorianCalendar(2019, 11, 1);
+        GregorianCalendar date2 = new GregorianCalendar(2019, 11, 2);
+        GregorianCalendar date3 = new GregorianCalendar(2019, 11, 3);
+        GregorianCalendar date4 = new GregorianCalendar(2019, 11, 4);
+        GregorianCalendar date5 = new GregorianCalendar(2019, 11, 5);
+        GregorianCalendar date6 = new GregorianCalendar(2019,10,30);
+        GregorianCalendar date7 = new GregorianCalendar(2019,10,29);
 
 
 
@@ -241,17 +245,17 @@ public class Examples{
         monitor1.addDailyReport(date4, monitorRead2);
         monitor1.addDailyReport(date5, monitorRead3);
         monitor1.addDailyReport(date5, monitorRead4);
-        assertTrue(424/12 == monitor1.averageTempForMonth(12,2019));
+        assertEquals((426.0/4.0), monitor1.averageTempForMonth(11,2019),0);
     }
     @Test
     public void testMon2(){
-        GregorianCalendar date1 = new GregorianCalendar(2019, 12, 1);
-        GregorianCalendar date2 = new GregorianCalendar(2019, 12, 2);
-        GregorianCalendar date3 = new GregorianCalendar(2019, 12, 3);
-        GregorianCalendar date4 = new GregorianCalendar(2019, 12, 4);
-        GregorianCalendar date5 = new GregorianCalendar(2019, 12, 5);
-        GregorianCalendar date6 = new GregorianCalendar(2019,11,30);
-        GregorianCalendar date7 = new GregorianCalendar(2019,11,29);
+        GregorianCalendar date1 = new GregorianCalendar(2019, 11, 1);
+        GregorianCalendar date2 = new GregorianCalendar(2019, 11, 2);
+        GregorianCalendar date3 = new GregorianCalendar(2019, 11, 3);
+        GregorianCalendar date4 = new GregorianCalendar(2019, 11, 4);
+        GregorianCalendar date5 = new GregorianCalendar(2019, 11, 5);
+        GregorianCalendar date6 = new GregorianCalendar(2019,10,30);
+        GregorianCalendar date7 = new GregorianCalendar(2019,10,29);
 
 
 
@@ -283,18 +287,106 @@ public class Examples{
         monitor1.addDailyReport(date5, monitorRead3);
         monitor1.addDailyReport(date5, monitorRead4);
 
-        assertTrue(18 == monitor1.totalRainfallForMonth(12,2019));
+        assertTrue(14.0 == monitor1.totalRainfallForMonth(11,2019));
+    }
+
+    @Test
+    public void testMon3(){
+        GregorianCalendar date1 = new GregorianCalendar(2019, 11, 1);
+        GregorianCalendar date2 = new GregorianCalendar(2019, 11, 2);
+        GregorianCalendar date3 = new GregorianCalendar(2019, 11, 3);
+        GregorianCalendar date4 = new GregorianCalendar(2019, 11, 4);
+        GregorianCalendar date5 = new GregorianCalendar(2019, 11, 5);
+        GregorianCalendar date6 = new GregorianCalendar(2019,10,30);
+        GregorianCalendar date7 = new GregorianCalendar(2019,10,29);
+
+
+
+
+
+        LinkedList monitorRead1 = new LinkedList();
+        monitorRead1.add(reading1);
+        monitorRead1.add(reading2);
+        monitorRead1.add(reading3);
+
+        LinkedList monitorRead2 = new LinkedList();
+        monitorRead1.add(reading4);
+        monitorRead1.add(reading5);
+        monitorRead1.add(reading6);
+
+        LinkedList monitorRead3 = new LinkedList();
+        monitorRead1.add(reading7);
+        monitorRead1.add(reading8);
+        monitorRead1.add(reading9);
+        LinkedList monitorRead4 = new LinkedList();
+        monitorRead1.add(reading10);
+        monitorRead1.add(reading11);
+        monitorRead1.add(reading12);
+        LinkedList monitorRead5 = new LinkedList();
+        WeatherMonitor monitor1 = new WeatherMonitor(list1);
+
+
+        monitor1.addDailyReport(date3, monitorRead5);
+
+
+        assertTrue(0.0 == monitor1.totalRainfallForMonth(11,2019));
+    }
+
+
+    @Test
+    public void testMon4(){
+        GregorianCalendar date1 = new GregorianCalendar(2019, 11, 1);
+        GregorianCalendar date2 = new GregorianCalendar(2019, 11, 2);
+        GregorianCalendar date3 = new GregorianCalendar(2019, 11, 3);
+        GregorianCalendar date4 = new GregorianCalendar(2019, 11, 4);
+        GregorianCalendar date5 = new GregorianCalendar(2019, 11, 5);
+        GregorianCalendar date6 = new GregorianCalendar(2019,10,30);
+        GregorianCalendar date7 = new GregorianCalendar(2019,10,29);
+
+
+
+
+
+        LinkedList monitorRead1 = new LinkedList();
+        monitorRead1.add(reading1);
+        monitorRead1.add(reading2);
+        monitorRead1.add(reading3);
+
+        LinkedList monitorRead2 = new LinkedList();
+        monitorRead1.add(reading4);
+        monitorRead1.add(reading5);
+        monitorRead1.add(reading6);
+
+        LinkedList monitorRead3 = new LinkedList();
+        monitorRead1.add(reading7);
+        monitorRead1.add(reading8);
+        monitorRead1.add(reading9);
+        LinkedList monitorRead4 = new LinkedList();
+        monitorRead1.add(reading10);
+        monitorRead1.add(reading11);
+        monitorRead1.add(reading12);
+        LinkedList monitorRead5 = new LinkedList();
+        monitorRead5.add(reading13);
+        monitorRead5.add(reading14);
+        monitorRead5.add(reading15);
+        WeatherMonitor monitor1 = new WeatherMonitor(list1);
+
+        monitor1.addDailyReport(date1,monitorRead1);
+        monitor1.addDailyReport(date3, monitorRead5);
+
+
+        assertEquals((534.0/2.0),monitor1.averageTempForMonth(11,2019),0);
     }
 
     @Test
     public void testCalendar(){
-        GregorianCalendar date1 = new GregorianCalendar(2019, 12, 1);
-        GregorianCalendar date2 = new GregorianCalendar(2019, 12, 2);
-        GregorianCalendar date3 = new GregorianCalendar(2019, 12, 3);
-        GregorianCalendar date4 = new GregorianCalendar(2019, 12, 4);
-        GregorianCalendar date5 = new GregorianCalendar(2019, 12, 5);
-        GregorianCalendar date6 = new GregorianCalendar(2019,11,30);
-        GregorianCalendar date7 = new GregorianCalendar(2019,11,29);
+        GregorianCalendar date1 = new GregorianCalendar(2019, 11, 1);
+        GregorianCalendar date2 = new GregorianCalendar(2019, 11, 2);
+        GregorianCalendar date3 = new GregorianCalendar(2019, 11, 3);
+        GregorianCalendar date4 = new GregorianCalendar(2019, 11, 4);
+        GregorianCalendar date5 = new GregorianCalendar(2019, 11, 5);
+        GregorianCalendar date6 = new GregorianCalendar(2019,10,30);
+        GregorianCalendar date7 = new GregorianCalendar(2019,10,29);
 
 
 
@@ -329,16 +421,18 @@ public class Examples{
         rain1.add(2.0);
         rain1.add(0.0);
         rain1.add(1.0);
-        WeatherMonitor monitor1 = new WeatherMonitor(list1);
+
         DailyWeatherReport daily1 = new DailyWeatherReport(date1,temp1, rain1);
         list1.add(daily1);
+        WeatherMonitor monitor1 = new WeatherMonitor(list1);
+
 
 
         monitor1.addDailyReport(date3, monitorRead1);
         monitor1.addDailyReport(date4, monitorRead2);
         monitor1.addDailyReport(date5, monitorRead3);
         monitor1.addDailyReport(date5, monitorRead4);
-        assertTrue(12.0 == (daily1.getDate().get(GregorianCalendar.MONTH)));
+        assertTrue(11 == (daily1.getDate().get(GregorianCalendar.MONTH)));
     }
 
 }
