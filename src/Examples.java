@@ -206,7 +206,7 @@ public class Examples{
      */
     @Test
     public void testMon1(){
-        assertTrue(35.33 == monitor1.averageTempForMonth(12,2019));
+        assertTrue(424/12 == monitor1.averageTempForMonth(12,2019));
     }
 
 }
