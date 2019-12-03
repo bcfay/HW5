@@ -42,7 +42,6 @@ public class Examples{
     Reading reading12 = new Reading(time12, 56.0, 3.0);
 
     LinkedList<DailyWeatherReport>list1 = new LinkedList<>();
-    WeatherMonitor monitor1 = new WeatherMonitor(list1);
 
    public Examples() {
        /**
@@ -53,6 +52,8 @@ public class Examples{
        temp1.add(32.0);
        temp1.add(29.0);
        temp1.add(35.0);
+
+
 
        LinkedList<Double> temp2 = new LinkedList<>();
        temp2.add(41.0);
@@ -116,13 +117,11 @@ public class Examples{
        GregorianCalendar date3 = new GregorianCalendar(2019, 12, 3);
        GregorianCalendar date4 = new GregorianCalendar(2019, 12, 4);
        GregorianCalendar date5 = new GregorianCalendar(2019, 12, 5);
+       GregorianCalendar date6 = new GregorianCalendar(2019,11,30);
+       GregorianCalendar date7 = new GregorianCalendar(2019,11,29);
 
 
-       DailyWeatherReport dayReport1 = new DailyWeatherReport(date1,rain1,temp1);
-       DailyWeatherReport dayReport2 = new DailyWeatherReport(date2,rain2,temp2);
 
-       list1.add(dayReport1);
-       list1.add(dayReport2);
 
 
        LinkedList monitorRead1 = new LinkedList();
@@ -147,10 +146,7 @@ public class Examples{
        /**
         * adds daily reports using the method within WeatherMonitor
         */
-       monitor1.addDailyReport(date3, monitorRead1);
-       monitor1.addDailyReport(date4, monitorRead2);
-       monitor1.addDailyReport(date5, monitorRead3);
-       monitor1.addDailyReport(date5, monitorRead4);
+
 
 
 
@@ -208,7 +204,141 @@ public class Examples{
      */
     @Test
     public void testMon1(){
+        GregorianCalendar date1 = new GregorianCalendar(2019, 12, 1);
+        GregorianCalendar date2 = new GregorianCalendar(2019, 12, 2);
+        GregorianCalendar date3 = new GregorianCalendar(2019, 12, 3);
+        GregorianCalendar date4 = new GregorianCalendar(2019, 12, 4);
+        GregorianCalendar date5 = new GregorianCalendar(2019, 12, 5);
+        GregorianCalendar date6 = new GregorianCalendar(2019,11,30);
+        GregorianCalendar date7 = new GregorianCalendar(2019,11,29);
+
+
+
+
+
+        LinkedList monitorRead1 = new LinkedList();
+        monitorRead1.add(reading1);
+        monitorRead1.add(reading2);
+        monitorRead1.add(reading3);
+
+        LinkedList monitorRead2 = new LinkedList();
+        monitorRead1.add(reading4);
+        monitorRead1.add(reading5);
+        monitorRead1.add(reading6);
+
+        LinkedList monitorRead3 = new LinkedList();
+        monitorRead1.add(reading7);
+        monitorRead1.add(reading8);
+        monitorRead1.add(reading9);
+        LinkedList monitorRead4 = new LinkedList();
+        monitorRead1.add(reading10);
+        monitorRead1.add(reading11);
+        monitorRead1.add(reading12);
+        WeatherMonitor monitor1 = new WeatherMonitor(list1);
+
+
+        monitor1.addDailyReport(date3, monitorRead1);
+        monitor1.addDailyReport(date4, monitorRead2);
+        monitor1.addDailyReport(date5, monitorRead3);
+        monitor1.addDailyReport(date5, monitorRead4);
         assertTrue(424/12 == monitor1.averageTempForMonth(12,2019));
+    }
+    @Test
+    public void testMon2(){
+        GregorianCalendar date1 = new GregorianCalendar(2019, 12, 1);
+        GregorianCalendar date2 = new GregorianCalendar(2019, 12, 2);
+        GregorianCalendar date3 = new GregorianCalendar(2019, 12, 3);
+        GregorianCalendar date4 = new GregorianCalendar(2019, 12, 4);
+        GregorianCalendar date5 = new GregorianCalendar(2019, 12, 5);
+        GregorianCalendar date6 = new GregorianCalendar(2019,11,30);
+        GregorianCalendar date7 = new GregorianCalendar(2019,11,29);
+
+
+
+
+
+        LinkedList monitorRead1 = new LinkedList();
+        monitorRead1.add(reading1);
+        monitorRead1.add(reading2);
+        monitorRead1.add(reading3);
+
+        LinkedList monitorRead2 = new LinkedList();
+        monitorRead1.add(reading4);
+        monitorRead1.add(reading5);
+        monitorRead1.add(reading6);
+
+        LinkedList monitorRead3 = new LinkedList();
+        monitorRead1.add(reading7);
+        monitorRead1.add(reading8);
+        monitorRead1.add(reading9);
+        LinkedList monitorRead4 = new LinkedList();
+        monitorRead1.add(reading10);
+        monitorRead1.add(reading11);
+        monitorRead1.add(reading12);
+        WeatherMonitor monitor1 = new WeatherMonitor(list1);
+
+
+        monitor1.addDailyReport(date3, monitorRead1);
+        monitor1.addDailyReport(date4, monitorRead2);
+        monitor1.addDailyReport(date5, monitorRead3);
+        monitor1.addDailyReport(date5, monitorRead4);
+
+        assertTrue(18 == monitor1.totalRainfallForMonth(12,2019));
+    }
+
+    @Test
+    public void testCalendar(){
+        GregorianCalendar date1 = new GregorianCalendar(2019, 12, 1);
+        GregorianCalendar date2 = new GregorianCalendar(2019, 12, 2);
+        GregorianCalendar date3 = new GregorianCalendar(2019, 12, 3);
+        GregorianCalendar date4 = new GregorianCalendar(2019, 12, 4);
+        GregorianCalendar date5 = new GregorianCalendar(2019, 12, 5);
+        GregorianCalendar date6 = new GregorianCalendar(2019,11,30);
+        GregorianCalendar date7 = new GregorianCalendar(2019,11,29);
+
+
+
+
+
+        LinkedList monitorRead1 = new LinkedList();
+        monitorRead1.add(reading1);
+        monitorRead1.add(reading2);
+        monitorRead1.add(reading3);
+
+        LinkedList monitorRead2 = new LinkedList();
+        monitorRead1.add(reading4);
+        monitorRead1.add(reading5);
+        monitorRead1.add(reading6);
+
+        LinkedList monitorRead3 = new LinkedList();
+        monitorRead1.add(reading7);
+        monitorRead1.add(reading8);
+        monitorRead1.add(reading9);
+        LinkedList monitorRead4 = new LinkedList();
+        monitorRead1.add(reading10);
+        monitorRead1.add(reading11);
+        monitorRead1.add(reading12);
+
+        LinkedList<Double> temp1 = new LinkedList<>();
+        temp1.add(31.0);
+        temp1.add(32.0);
+        temp1.add(29.0);
+        temp1.add(35.0);
+
+        LinkedList<Double> rain1 = new LinkedList<Double>();
+        rain1.add(2.0);
+        rain1.add(0.0);
+        rain1.add(1.0);
+        WeatherMonitor monitor1 = new WeatherMonitor(list1);
+        DailyWeatherReport daily1 = new DailyWeatherReport(date1,temp1, rain1);
+        list1.add(daily1);
+
+
+        monitor1.addDailyReport(date3, monitorRead1);
+        monitor1.addDailyReport(date4, monitorRead2);
+        monitor1.addDailyReport(date5, monitorRead3);
+        monitor1.addDailyReport(date5, monitorRead4);
+        assertTrue(12.0 == (daily1.getDate().get(GregorianCalendar.MONTH)));
     }
 
 }

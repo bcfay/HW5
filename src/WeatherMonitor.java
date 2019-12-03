@@ -22,6 +22,7 @@ public class WeatherMonitor {
     public double averageTempForMonth(int month, int year){
         double totalTemp=0;
         int i=0;
+        System.out.print(this.reports);
         for(IWeatherData m: reportsForMonth(month, year)){
             totalTemp += m.getTemperature();
             i++;
@@ -77,7 +78,9 @@ public class WeatherMonitor {
         LinkedList<IWeatherData> monthsReports = new LinkedList<>();
 
         for(IWeatherData d: this.reports){
-            if((d.getDate().get((GregorianCalendar.MONTH)) == month) && (d.getDate().get((GregorianCalendar.YEAR)) == year)){
+            int m = d.getDate().get((GregorianCalendar.MONTH));
+
+            if((m== month) && (d.getDate().get((GregorianCalendar.YEAR)) == year)){
                 monthsReports.add(d);
             }
         }
