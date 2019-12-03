@@ -5,7 +5,7 @@ public class WeatherMonitor {
 
     LinkedList<IWeatherData> reports;
 
-    public WeatherMonitor(LinkedList reports) {
+    public WeatherMonitor(LinkedList<IWeatherData> reports) {
         this.reports = reports;
     }
 
